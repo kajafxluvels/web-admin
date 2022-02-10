@@ -26,13 +26,13 @@ class Primary extends BaseController
         $absensimodel = new absensi_model();
         $bulan = $this->request->getPost('month');
 
-        $rekapabsen = $absensimodel->where('MONTHNAME(tanggal)',$bulan)->first();
+        $rekapabsen = $absensimodel->where('MONTHNAME(tanggal)', $bulan)->first();
 
         $data = [
             'rekap_absensi' => $rekapabsen
         ];
         dd($data);
 
-        //return view('admin-dasboard/tabelrekap', $bulan);
+        return view('admin-dasboard/tabelrekap', $data);
     }
 }
